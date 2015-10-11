@@ -1,0 +1,9 @@
+{
+  "api": {
+    "telegram": {
+      "token": "BOT TOKEN"
+    }
+  },
+  "message": "Напомни мне об этом!",
+  "finish_message": "Умница:)"
+}
