@@ -11,12 +11,33 @@ var bot = new TelegramBot(config.api.telegram.token, {polling: true});
 
 console.log('app started');
 
-bot.onText(/\/echo (.+)/, function (msg, match) {
-    var fromId = msg.from.id;
-    var resp = match[1];
-    bot.sendMessage(fromId, resp);
-    console.log(fromId);
+//bot.onText(/\/echo (.+)/, function (msg, match) {
+//    var fromId = msg.from.id;
+//    var resp = match[1];
+//    bot.sendMessage(fromId, resp);
+//    console.log(fromId);
+//});
+
+var users = {};
+
+bot.onText(/\/remember/,function(msg, match){
+    users[msg.from.id] = true;
+    console.log('join', users);
+
 });
+
+bot.onText(/\/stop/,function(msg, match){
+    delete users[msg.from.id];
+    bot.sendMessage(msg.from.id, config.finish_message);
+    console.log('leave', users);
+
+});
+
+setInterval(function(){
+    for(var key in users){
+        bot.sendMessage(key, config.message);
+    }
+}, 1000);
 
 // Any kind of message
 //bot.on('message', function (msg) {
