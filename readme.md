@@ -5,7 +5,7 @@
 ## Установка
 * Создать бота в Телеграме, если он еще не создан
 * Установить [http://nodejs.org](NodeJS)
-* [https://github.com/atnartur/remember_bot/archive/master.zip](Скачать проект)
+* Скачать проект - https://github.com/atnartur/remember_bot/archive/master.zip
 * Распаковать
 * Выполнить ```npm i```
 * Скопировать ```config_sample.json```  в ```config.json``` и вставить свои значения
